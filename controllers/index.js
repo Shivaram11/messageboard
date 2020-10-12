@@ -1,5 +1,5 @@
-const Board = require("../models/Board");
-const User = require("../models/User");
+const Board = require("../models/boardes");
+const User = require("../models/useres");
 // const Messages = require("../models/Messages");
 module.exports={
   

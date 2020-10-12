@@ -22,7 +22,7 @@ const messageRouter = require("./routes/message");
 //database
 
 // const Messages= require("./models/board");
-const User =require("./models/User");
+const User =require("./models/useres");
 const mongoose = require("mongoose");
 // const passport = require('./config/passport');
 let mongourl=`mongodb+srv://spikee:${process.env.MONGODBKEY}@cluster0.w1arv.mongodb.net/message?retryWrites=true&w=majority`;

@@ -1,6 +1,6 @@
 // const { populate } = require("../models/board");
-const Board = require("../models/Board");
-const Message = require("../models/Message");
+const Board = require("../models/boardes");
+const Message = require("../models/messagees");
 
 module.exports = {
     async messageCreate(req,res,next){

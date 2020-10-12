@@ -1,7 +1,7 @@
 //use jshint es6
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose=require("mongoose");
-const User = require("../models/User");
+const User = require("../models/useres");
 const passport = require("passport");
 
 // console.log(passport);
