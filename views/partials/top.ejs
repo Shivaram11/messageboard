@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/e034c117a5.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <header> -->
+        <!-- <div class="banner">
+            <div class="img-container">
+
+            </div>
+            <div class="banner-text">
+                <p> Make Someone <br> Smile <br> Today <br> with your <br> message
+</p>
+<button class="btn btn-dark">Create a board</button>
+
+            </div>
+            
+            
+
+        </div> -->
+        
+<header>
+         <nav> 
+            <div class="navbar">
+                <span class="menu-toggler">
+                    <i class="fas fa-ellipsis-h"></i>
+                </span>
+                <%if(!req.user){%>
+                <a href="/auth/google">
+                    <button class="btn btn-success">
+                        SIGN IN
+                    </button>
+
+                </a>
+
+                <%}else{%>
+                    <p class="welcome">
+                        Welcome <%=req.user.firstName%>
+                        <a href="/profile" style="margin-left: 8px;"><i class="fas fa-user"></i></a>
+                        <a href="/logout">
+                        <button class="btn btn-success" style="margin-top:-5px;margin-left: 10px;">
+                            Logout
+                        </button>
+                        </a>
+                    </p>
+
+                  <%}%>  
+            </div>
+            <div class="menu">
+                <span class="x">
+                    <i class="fas fa-times-circle"></i>
+                </span>
+              <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact Us</a>
+                <a href="/auth/google">sign up</a>
+
+
+
+            </div>
+        </nav>
+       
+    </header> 

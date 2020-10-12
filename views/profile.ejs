@@ -1,0 +1,22 @@
+<%-include("partials/top",{req});%>
+
+<div class="board-list">
+    <%user.boards.forEach(board=>{ %>
+        
+        <div class="board">
+            <p>
+                <%=board.title%>
+            </p>
+            <a href="/board/<%=board.id%>">
+                <button class="btn btn-success">
+                    Go to the board
+                </button>
+            </a>
+            </div>
+
+
+   <% });%>
+</div>
+
+
+<%-include("partials/bottom",{req});%>

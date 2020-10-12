@@ -1,0 +1,81 @@
+<%-include("partials/top",{req});%>
+<div class="board-body">
+
+<div class="info-screen">
+    <h1> <%=board.title%> </h1>
+<p>
+   <%=board.description%>
+</p>
+<div class="scroll-down">
+
+   <a href="#msg"> <i  class="fas fa-angle-double-down"></i></a>
+</div>
+<% if(!hasReviewed) {%>
+<div class="form-toggler">
+    <i class="fas fa-plus"></i>
+</div>
+<%}%>
+</div>
+
+
+<div class="message-form">
+                            <i class="fas fa-times-circle" id="close"></i>
+
+<form action="/board/<%=req.params.bid%>/message" method="POST" >
+    <!-- <div> -->
+
+        <label for="name" id="label1"> Your Name</label>
+        <input type="text" name="name">
+    <!-- </div> -->
+    <!-- <div> -->
+        
+        <label for="message" id="label2">Your Message</label>
+        <textarea name="message" id="" cols="20" rows="6"></textarea>
+    <!-- </div> -->
+    <button class="btn btn-success">
+        SEND
+    </button>
+</form>
+</div>
+
+<!--     message-container     -->
+
+<div class="message-container" id="msg">
+<%board.messages.forEach(message=>{%>
+
+        
+        <div class="message " data-id="<%=message.id%>">
+            
+            <div class="message-content">
+                <%if(req.user.id==message.user){%>
+                <span class="edit-btn"><i class="fas fa-edit"></i></span>
+                <form action="/board/<%=req.params.bid%>/message/<%=message.id%>?_method=DELETE" method="POST">
+                
+                    <button type="submit" class="delete-btn"><i class="fas fa-trash"></i></button>
+                </form>
+                <%}%>
+                <h1 class="message-name"><%=message.name%> says  </h1>
+                <p class="message-content"> 
+                 <%=message.message%>     
+    
+                </p>
+            </div>
+            <div class="edit-form">
+                <form action="/board/<%=req.params.bid%>/message/<%=message.id%>?_method=PUT" method="POST">
+                <label for="name" id="label1"> Your Name</label>
+                <input type="text" name="name" class="typing" value="<%=message.name%>">
+                <label for="message" id="label2">Your Message</label>
+                <textarea name="message" id=""  cols="20" class="typing" rows="6"><%=message.message%></textarea>
+                <button type="submit">
+                    Submit
+                </button>
+                    </form>
+            </div>
+           
+        </div>
+        <%}) %>
+        
+</div>
+</div>
+
+<%-include("partials/bottom");%>
