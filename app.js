@@ -25,7 +25,8 @@ const messageRouter = require("./routes/message");
 const User =require("./models/User");
 const mongoose = require("mongoose");
 // const passport = require('./config/passport');
-mongoose.connect("mongodb+srv://spikee:uQUgK7zHCeeVLfGd@cluster0.w1arv.mongodb.net/message?retryWrites=true&w=majority", {
+let mongourl=`mongodb+srv://spikee:${process.env.MONGODBKEY}@cluster0.w1arv.mongodb.net/message?retryWrites=true&w=majority`;
+mongoose.connect(mongourl, {
   useNewUrlParser: true, 
   useUnifiedTopology: true,
 });
